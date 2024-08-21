@@ -23,21 +23,6 @@ export class UserEntity {
   @Column({ name: 'EMAIL' })
   email: string;
 
-  @Column({ name: 'PROF_IMG' })
-  profile: string;
-
-  @Column({ name: 'JOB_TYPE_CD' })
-  jobCd: string;
-
-  @Column({ name: 'DGSBJT_CD' })
-  dgsbjtCd: string;
-
-  @Column({ name: 'DEVICE_TOKEN' })
-  deviceToken: string;
-
-  @Column({ name: 'DEVICE_OS' })
-  deviceOs: string;
-
   @Column({ name: 'IS_USE' })
   isUse: number;
 
