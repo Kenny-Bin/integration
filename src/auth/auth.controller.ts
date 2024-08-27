@@ -10,6 +10,7 @@ import { AuthService } from "./auth.service";
 import { LoginDto } from "./dto/login.dto";
 import { UserRO } from "./auth.interface";
 import { AuthGuard } from "@nestjs/passport";
+import { converProfileImage } from '../common/function';
 
 @Controller('auth')
 export class AuthController {
@@ -30,9 +31,14 @@ export class AuthController {
     // 토큰 발급
     const token = await this.authService.generateJWT(_user);
 
-    let { idx, ykiho, userId, userNm } = _user;
+    let { idx, ykiho, userId, userNm, profile} = _user;
 
-    const user = { idx, ykiho, userId, userNm, token};
+    // 프로필 이미지 등록했을 경우
+    if (profile != null) {
+      profile = converProfileImage(profile);
+    }
+
+    const user = { idx, ykiho, userId, userNm, profile, token};
 
     return { user };
   }

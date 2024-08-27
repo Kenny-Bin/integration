@@ -1,4 +1,4 @@
-import {Column, Entity, OneToOne, PrimaryColumn, JoinColumn, OneToMany} from 'typeorm';
+import {Column, Entity, PrimaryColumn} from 'typeorm';
 
 @Entity('USER_INFO', { name: 'users' })
 export class UserEntity {
@@ -17,6 +17,9 @@ export class UserEntity {
   @Column({ name: 'USER_PW' })
   userPw: string;
 
+  @Column({ name: 'PROF_IMG'})
+  profile: string;
+
   @Column({ name: 'MOBILE_NO' })
   mobileNo: string;
 
@@ -25,12 +28,4 @@ export class UserEntity {
 
   @Column({ name: 'IS_USE' })
   isUse: number;
-
-  // @Column({ nullable: true })
-  // jobCdNm: string;
-  //
-  // @Column({ nullable: true })
-  // dgsbjtCdNm: string;
-  //
-  // @Column({ nullable: true })
 }
