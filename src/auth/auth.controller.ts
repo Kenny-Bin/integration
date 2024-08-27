@@ -27,9 +27,12 @@ export class AuthController {
       throw new HttpException({ error }, HttpStatus.UNAUTHORIZED);
     }
 
+    // 토큰 발급
+    const token = await this.authService.generateJWT(_user);
+
     let { idx, ykiho, userId, userNm } = _user;
 
-    const user = { idx, ykiho, userId, userNm};
+    const user = { idx, ykiho, userId, userNm, token};
 
     return { user };
   }
